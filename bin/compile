@@ -8,6 +8,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 build_dir=$1
 cache_dir=$2
 env_dir=$3
+[[ $GULP_HARMONY= true ]] && harmony_args="--harmony" || harmony_args=""
 
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
 
@@ -144,7 +145,7 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
     # Install gulp locally
     npm install gulp
     echo "-----> Found gulpfile, running gulp heroku:$NODE_ENV task"
-    $build_dir/node_modules/.bin/gulp heroku:$NODE_ENV
+    $build_dir/node_modules/.bin/gulp heroku:$NODE_ENV $harmony_args
   else
     echo "-----> No gulpfile found"
   fi
