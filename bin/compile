@@ -8,7 +8,9 @@ set -o pipefail   # don't ignore exit codes when piping output
 build_dir=$1
 cache_dir=$2
 env_dir=$3
-[[ $GULP_HARMONY= true ]] && harmony_args="--harmony" || harmony_args=""
+if [ "$GULP_HARMONY" = true ] ; then
+    harmony_args="--harmony"
+fi
 
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
 
