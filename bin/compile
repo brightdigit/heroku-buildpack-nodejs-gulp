@@ -10,6 +10,9 @@ cache_dir=$2
 env_dir=$3
 if [ "$GULP_HARMONY" = true ] ; then
     harmony_args="--harmony"
+    echo "Using Harmony for gulp..."
+else
+    echo "Not using Harmony for build..."
 fi
 
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
