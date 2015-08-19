@@ -142,7 +142,7 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
     fi
 
     if [ "$GULP_HARMONY" = true ] ; then
-        harmony_args="--harmony"
+        harmony_args=" --harmony"
         echo "Using Harmony for gulp..."
     else
         echo "Not using Harmony for build..."
@@ -151,7 +151,7 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
     # Install gulp locally
     npm install gulp
     echo "-----> Found gulpfile, running gulp heroku:$NODE_ENV task"
-    $build_dir/node_modules/.bin/gulp heroku:$NODE_ENV $harmony_args
+    $build_dir/node_modules/.bin/gulp$harmony_args heroku:$NODE_ENV
   else
     echo "-----> No gulpfile found"
   fi
