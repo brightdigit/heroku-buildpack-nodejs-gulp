@@ -141,7 +141,6 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
       export_env_dir $env_dir
     fi
 
-    echo $GULP_HARMONY
     if [ "$GULP_HARMONY" = true ] ; then
         harmony_args="--harmony"
         echo "Using Harmony for gulp..."
